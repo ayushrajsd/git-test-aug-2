@@ -25,27 +25,27 @@ app.get("*", (req, res) => {
 // app.use(helmet());
 app.use(mongoSanitize());
 
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: [
-          "'self'",
-          "'unsafe-inline'",
-          "'unsafe-eval'",
-          "https://git-test-aug-2.onrender.com/", // Replace with your actual production URL
-        ],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-        imgSrc: ["'self'", "data:", "https://git-test-aug-2.onrender.com/"], // Replace with your actual production URL
-        connectSrc: ["'self'", "https://git-test-aug-2.onrender.com/"], // Your API domain
-        fontSrc: ["'self'", "https://git-test-aug-2.onrender.com/"],
-        objectSrc: ["'none'"],
-        upgradeInsecureRequests: [],
-      },
-    },
-  })
-);
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: {
+//       directives: {
+//         defaultSrc: ["'self'"],
+//         scriptSrc: [
+//           "'self'",
+//           "'unsafe-inline'",
+//           "'unsafe-eval'",
+//           "https://git-test-aug-2.onrender.com/", // Replace with your actual production URL
+//         ],
+//         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+//         imgSrc: ["'self'", "data:", "https://git-test-aug-2.onrender.com/"], // Replace with your actual production URL
+//         connectSrc: ["'self'", "https://git-test-aug-2.onrender.com/"], // Your API domain
+//         fontSrc: ["'self'", "https://git-test-aug-2.onrender.com/"],
+//         objectSrc: ["'none'"],
+//         upgradeInsecureRequests: [],
+//       },
+//     },
+//   })
+// );
 
 app.use(express.json());
 require("dotenv").config(); // load the environment variables into process.env
