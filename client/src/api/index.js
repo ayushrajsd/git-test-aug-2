@@ -6,7 +6,7 @@ export const axiosInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-  baseURL: "/",
+  baseURL: "https://git-test-aug-2.onrender.com/",
 });
 
 axiosInstance.interceptors.request.use(
