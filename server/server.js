@@ -9,7 +9,7 @@ const app = express();
 app.use(
   cors({
     origin: "*", // Allow only your frontend origin
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
@@ -34,12 +34,12 @@ app.use(
           "'self'",
           "'unsafe-inline'",
           "'unsafe-eval'",
-          "https://your-production-url.com", // Replace with your actual production URL
+          "https://git-test-aug-2.onrender.com/", // Replace with your actual production URL
         ],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-        imgSrc: ["'self'", "data:", "https://your-production-url.com"], // Replace with your actual production URL
-        connectSrc: ["'self'", "https://your-production-url.com"], // Your API domain
-        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:", "https://git-test-aug-2.onrender.com/"], // Replace with your actual production URL
+        connectSrc: ["'self'", "https://git-test-aug-2.onrender.com/"], // Your API domain
+        fontSrc: ["'self'", "https://git-test-aug-2.onrender.com/"],
         objectSrc: ["'none'"],
         upgradeInsecureRequests: [],
       },
