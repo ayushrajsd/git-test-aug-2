@@ -24,6 +24,7 @@ app.use(express.static(clientBuildPath));
 
 // app.use(helmet());
 app.use(mongoSanitize());
+app.use(helmet());
 
 // app.use(
 //   helmet({
