@@ -15,8 +15,8 @@ app.use(
   })
 );
 
-const clientBuildPath = path.join(__dirname, "client/build");
-
+const clientBuildPath = path.join(__dirname, "../client/build");
+console.log("cliuent path", clientBuildPath);
 // Serve static files from the React app
 app.use(express.static(clientBuildPath));
 
