@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const rateLimit = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
@@ -14,13 +15,12 @@ app.use(
   })
 );
 
-const clientBuildPath = path.join(__dirname, "../client/build");
-console.log(clientBuildPath);
+const clientBuildPath = path.join(__dirname, "client/build");
 
+// Serve static files from the React app
 app.use(express.static(clientBuildPath));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(clientBuildPath, "index.html"));
-});
+
+// The "catchall" handler: for any request that doesn't match an API route, serve the index.html file
 
 // app.use(helmet());
 app.use(mongoSanitize());
@@ -48,7 +48,7 @@ app.use(mongoSanitize());
 // );
 
 app.use(express.json());
-require("dotenv").config(); // load the environment variables into process.env
+// load the environment variables into process.env
 
 const userRouter = require("./routes/userRoutes");
 const movieRouter = require("./routes/movieRoutes");
@@ -77,6 +77,11 @@ app.use("/api/movies", movieRouter);
 app.use("/api/theatres", theatreRouter);
 app.use("/api/shows", showRouter);
 app.use("/api/bookings", bookingRouter);
+
+app.get("*", (req, res) => {
+  console.log("sending file", path.join(clientBuildPath, "index.html"));
+  res.sendFile(path.join(clientBuildPath, "index.html"));
+});
 
 app.listen(8082, () => {
   console.log("Server is up and running on port 8082");
